@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muneer Ahmad</title>
+    <style>
+        #maindiv {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            font-size: xx-large;
+            font-family: sans-serif;
+            color: rgb(43, 1, 71);
+            font-weight: bold;
+        }
+
+        button {
+            border: 1px solid;
+            border-color: rgb(43, 1, 71);
+            color: rgb(43, 1, 71);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #reset {
+            border-color: black;
+            color: white;
+            background-color: #2b0147;
+
+        }
+        button:hover {
+            border-width: 2px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="maindiv">
+        <div id="div1">Counter</div>
+        <div id="div2">0</div>
+        <div id="div3">
+            <button id="decrease">DECREASE</button>
+            <button id="reset">RESET</button>
+            <button id="increase">INCREASE</button>
+
+        </div>
+    </div>
+    <script>
+        let count = 0;
+        function addRepeatedEvent(button, event) {
+            let timerid;
+            button.addEventListener(
+                'mousedown', () => {
+                    timerid = setInterval(() => {
+                    document.querySelector('#div2').innerHTML = event()
+                }, 100);
+            }
+            )
+            button.addEventListener(
+                'mouseup', () => {
+                    timerid = clearInterval(timerid);
+                }
+            )
+        }
+
+        addRepeatedEvent(document.querySelector('#increase'), () => {
+            count++;
+            if (count >= 0) {
+                document.querySelector('#div2').style.color = '#2b0147' ;
+            }
+            return count;
+        })
+        addRepeatedEvent(document.querySelector('#decrease'), () => {
+            count--;
+            if (count < 0) {
+                document.querySelector('#div2').style.color = 'red' ;
+            }
+            return count;
+        })
+        document.querySelector('#reset').addEventListener('click', () => {
+            document.querySelector('#div2').innerHTML = 0;
+            document.querySelector('#div2').style.color = '#2b0147' ;
+            count = 0;
+        })
+    </script>
+</body>
+
+</html>
