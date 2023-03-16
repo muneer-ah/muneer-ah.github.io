@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muneer Ahmad</title>
+    <style>
+        #text {
+            font-size: x-large;
+            margin: 10px;
+            color: rgb(44, 1, 44);
+        }
+    </style>
+</head>
+<body>
+    <div id="inputs">
+        <select name="food" id="food" onchange="addValues()">
+            <option value="default">--select food--</option>
+            <option value="fruit">Fruits</option>
+            <option value="vegetable">Vegetables</option>
+        </select>
+        <select name="" id="options">
+            <option value="default">-- Please select food --</option>
+        </select>
+        <button>Show</button>
+    </div>
+    <div id="text"></div>
+
+    <script>
+        
+        let a = document.getElementById('options');
+        let varfood = document.getElementById('food');
+        let vartext = document.getElementById('text');
+        let b = '<option value = "strawberry">strawberry</option>'
+        let c = '<option value = "Banana">Banana</option>'
+        let d = '<option value = "Orange">Orange</option>'
+        let e = '<option value = "Apple">Apple</option>'
+        let f = '<option value = "LadyFinger">LadyFinger</option>'
+        let g = '<option value = "Tomato">Tomato</option>'
+        let h = '<option value = "Potato">Potato</option>'
+        let i = '<option value = "Onion">Onion</option>'
+
+
+        function addValues(){
+            if (document.getElementById('food').value == "fruit") {
+            a.innerHTML = b + c + d + e;
+            } else if (document.getElementById('food').value == "vegetable") {
+                a.innerHTML = f + g + h + i;
+            } else {
+                a.innerHTML = '<option value="default">-- Please select food --</option>'
+            }
+        }
+        document.querySelector('button').addEventListener(
+            "click", () => {
+                vartext.innerHTML = 'The selected food is : '+ varfood.value + '<br>' +
+                'The selected Item is : '+ a.value;
+            }
+        )
+       
+    </script>
+</body>
+</html>

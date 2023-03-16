@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muneer Ahmad</title>
+    <style>
+        .mydiv {
+            align-items: center;
+            margin: 10px;
+        }
+        #display {
+            font-size: larger;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Play With Array</h1>
+    <div id="addmain">
+        <div class="mydiv">Add Items :</div>
+        <div class="mydiv" id="add">
+            <button id="push">push</button>
+            <button id="unshift">unshift</button>
+            <button id="insertat">insertAt</button>
+            <select name="" id="picklist1">
+                <option value="default">--Select Position--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+    </div>
+    <div id="removemain">
+        <div class="mydiv">Remove Items :</div>
+        <div class="mydiv" id="remove">
+            <button id="pop">pop</button>
+            <button id="shift">shift</button>
+            <button id="removeat">removeAt</button>
+            <select name="" id="picklist2">
+                <option value="default">--Select Position--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="mydiv" id="display"></div>
+
+
+    <script>
+        let defaultArray = ['🍔', '🍟', '🌭', '🍕', '🌮', '🥪', '🍣', '🍱', '🍜', '🍝', '🍦', '🍩', '🍪', '🍰', '🧁', '🍫', '🍬', '🍭', '🍯', '🍵', '🍹', '🍺', '🍻'];
+        let displayEmoji = [];
+        document.getElementById('display').innerText = displayEmoji
+
+        const randomE = () => {
+            return defaultArray[Math.floor(Math.random() * defaultArray.length)];
+        }
+
+        // ====================================================
+
+        document.getElementById('push').addEventListener(
+            'click', () => {
+                displayEmoji.push(randomE());
+                document.getElementById('display').innerText = displayEmoji
+            }
+        )
+        document.getElementById('unshift').addEventListener(
+            'click', () => {
+                displayEmoji.unshift(randomE());
+                document.getElementById('display').innerText = displayEmoji
+            }
+        )
+        document.getElementById('insertat').addEventListener(
+            'click', () => {
+                displayEmoji.splice(picklist1.value, 0, randomE());
+                document.getElementById('display').innerText = displayEmoji
+            }
+        )
+
+        // ====================================================
+
+        document.getElementById('pop').addEventListener(
+            'click', () => {
+                displayEmoji.pop();
+                document.getElementById('display').innerText = displayEmoji
+            }
+        )
+        document.getElementById('shift').addEventListener(
+            'click', () => {
+                displayEmoji.shift();
+                document.getElementById('display').innerText = displayEmoji
+            }
+        )
+        document.getElementById('removeat').addEventListener(
+            'click', () => {
+                displayEmoji.splice(picklist2.value, 1);
+                document.getElementById('display').innerText = displayEmoji
+            }
+        )
+
+    </script>
+    <!-- <script>
+        let b = Array.from('aioue');
+        let c = 0;
+        b.forEach((element) => {
+            if (element === 'a' 
+            || element ===  'e' 
+            || element === 'o' 
+            || element ===  'u' 
+            || element === 'i') { 
+           c++;
+            }
+        });
+        console.log(c)
+    </script> -->
+</body>
+
+</html>
